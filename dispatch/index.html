@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<body id="main-body">
+  <script src="intro.js"></script>
+  <script src="color.js"></script>
+  <script src="RAC.js"></script>
+  <script>console.log("Tool by Tjmaxmillion");console.intro(url, 10);</script>
+
+<link rel="stylesheet" href="style.css">
+<script src="links.js"></script>
+<datalist id="SafetyList">
+  <option value="Unsafe">
+  <option value="Unknown">
+  <option value="Safe">
+</datalist>
+<datalist id="Squads">
+  <option>ALPHA-23</option>
+  <option>BRAVO-12</option>
+  <option>CHARLIE-03</option>
+  <option>DELTA-37</option>
+  <option>ECHO-10</option>
+  <option>FOXTROT-07</option>
+  <option>GOLF-18</option>
+  <option>HOTEL-13</option>
+  <option>INDIA-27</option>
+  <option>JULIET-06</option>
+  <option>KILO-45</option>
+  <option>LIMA-10</option>
+  <option>MIKE-19</option>
+  <option>NOVEMBER-18</option>
+  <option>OSCAR-50</option>
+  <option>QUEBEC-14</option>
+  <option>ROMEO-36</option>
+  <option>SIERRA-117</option>
+  <option>TANGO-85</option>
+  <option>UNIFORM-01</option>
+  <option>VICTOR-51</option>
+  <option>WHISKEY-69</option>
+  <option>X-RAY-00</option>
+  <option>YANKEE-84</option>
+  <option>ZULU-66</option>
+  <option>SLRT-1</option>
+  <option>SLRT-2</option>
+  <option>SLRT-3</option>
+  <option>LMT-1</option>
+  <option>LMT-2</option>
+  <option>LMT-3</option>
+  <option>CO-1</option>
+</datalist>
+<datalist id="World">
+</datalist>
+<div id="header">
+<h2>Unofficial</h2>
+<h1>LPD Dispatcher</h1>
+</div>
+<form id="DBForm">
+  <label for="Squad">Squad</label><br>
+  <input type="text" id="Squad" name="Squad" value="" list="Squads"><br>
+
+  <label for="Requested">Requested</label><br>
+  <input type="text" id="Requested" name="Requested" value="" list="Squads"><br>
+
+  <label for="World">World</label><br>
+  <input type="text" id="World" name="World" list="World"><br>
+
+  <label for="Safety">Safety</label><br>
+  <input type="text" id="Safety" name="Safety" list="SafetyList"><br>
+
+  <label for="Situation">Situation</label><br>
+  <textarea type="text" id="Situation" name="Situation"></textarea><br>
+
+
+
+  <button class="button submit" type="button" onclick="submitForm()">Copy Log To Clipboard &#128203;</button>
+</form> 
+
+<div id="ansi">
+<h2>ANSI Color Codes!</h2>
+<code style="font-family: var(--font-code); padding: 0.5em; border: 1px solid var(--background-tertiary); font-weight: inherit; font-style: inherit; font-size: 0.875rem; line-height: 1.125rem; display: block; overflow-x: auto; border-radius: 4px; text-size-adjust: none; color: var(--text-normal); background: var(--background-secondary); white-space: pre-wrap">
+  <span class="hljs-ansi-style-bold" style="font-family: inherit; font-weight: 700; font-style: inherit; font-size: 14px; vertical-align: baseline">%Bold%</span>  <span class="hljs-ansi-style-underline" style="font-family: inherit; font-weight: inherit; font-style: inherit; font-size: 14px; vertical-align: baseline; text-decoration: underline">%Line%</span>  %Reset%
+  
+  <span class="hljs-ansi-foreground-black" style="font-family: inherit; font-weight: inherit; font-style: inherit; font-size: 14px; vertical-align: baseline; color: var(--interactive-muted)">%FGGrey%</span>  <span class="hljs-ansi-foreground-red" style="font-family: inherit; font-weight: inherit; font-style: inherit; font-size: 14px; vertical-align: baseline; color: rgb(220, 50, 47)">%FGRed%</span>  <span class="hljs-ansi-foreground-green" style="font-family: inherit; font-weight: inherit; font-style: inherit; font-size: 14px; vertical-align: baseline; color: rgb(133, 153, 0)">%FGGreen%</span>
+  <span class="hljs-ansi-foreground-yellow" style="font-family: inherit; font-weight: inherit; font-style: inherit; font-size: 14px; vertical-align: baseline; color: rgb(181, 137, 0)">%FGGold%</span>  <span class="hljs-ansi-foreground-blue" style="font-family: inherit; font-weight: inherit; font-style: inherit; font-size: 14px; vertical-align: baseline; color: rgb(38, 139, 210)">%FGBlue%</span>  <span class="hljs-ansi-foreground-magenta" style="font-family: inherit; font-weight: inherit; font-style: inherit; font-size: 14px; vertical-align: baseline; color: rgb(211, 54, 130)">%FGPink%</span>
+  <span class="hljs-ansi-foreground-cyan" style="font-family: inherit; font-weight: inherit; font-style: inherit; font-size: 14px; vertical-align: baseline; color: rgb(42, 161, 152)">%FGTeal%</span>  <span class="hljs-ansi-foreground-white" style="font-family: inherit; font-weight: inherit; font-style: inherit; font-size: 14px; vertical-align: baseline; color: var(--interactive-active)">%FGWhite%</span>
+
+  <span class="hljs-ansi-background-black" style="font-family: inherit; font-weight: inherit; font-style: inherit; font-size: 14px; vertical-align: baseline; background-color: rgb(0, 43, 54)">%BGBlue%</span>  <span class="hljs-ansi-background-red" style="font-family: inherit; font-weight: inherit; font-style: inherit; font-size: 14px; vertical-align: baseline; background-color: rgb(203, 75, 22)">%BGOrange%</span>  <span class="hljs-ansi-background-green" style="font-family: inherit; font-weight: inherit; font-style: inherit; font-size: 14px; vertical-align: baseline; background-color: rgb(88, 110, 117)">%BGGrey40%</span>
+  <span class="hljs-ansi-background-yellow" style="font-family: inherit; font-weight: inherit; font-style: inherit; font-size: 14px; vertical-align: baseline; background-color: rgb(101, 123, 131)">%BGGrey45%</span>  <span class="hljs-ansi-background-blue" style="font-family: inherit; font-weight: inherit; font-style: inherit; font-size: 14px; vertical-align: baseline; background-color: rgb(131, 148, 150)">%BGGrey55%</span>  <span class="hljs-ansi-background-magenta" style="font-family: inherit; font-weight: inherit; font-style: inherit; font-size: 14px; vertical-align: baseline; background-color: rgb(108, 113, 196)">%BGPurple%</span>
+  <span class="hljs-ansi-background-cyan" style="font-family: inherit; font-weight: inherit; font-style: inherit; font-size: 14px; vertical-align: baseline; background-color: rgb(147, 161, 161)">%BGGrey60%</span>  <span class="hljs-ansi-background-white" style="font-family: inherit; font-weight: inherit; font-style: inherit; font-size: 14px; vertical-align: baseline; background-color: rgb(253, 246, 227); color: rgb(0, 0, 0)">%BGWhite%</span>
+</code>
+</div>
+<script>
+  function ansicheck(){
+  if (!localStorage['Template'].match(/\`\`\`ansi/i)){
+    document.getElementById('ansi').style.display = 'none';
+  }else{document.getElementById('ansi').style.display = 'block';}}
+  ansicheck()
+</script>
+
+</body>
+</html>
+
+
+<script>
+    if (localStorage['Template'] === undefined){
+      localStorage['Template'] = "Squad: %Squad% \nRequested: %Requested% \nWorld: %World% \nSafety: %Safety% \nSituation: %Situation%\nStatus: Ongoing"
+      ansicheck()
+    }
+    Autocomplete("World", 'https://raw.githubusercontent.com/Unoffical-LPD-Tools/Autofills/refs/heads/main/dispatcher')
+
+
+
+
+
+
+
+
+    function submitForm() {
+      const form = document.getElementById('DBForm');
+      form.addEventListener('submit', (event) => {
+        event.preventDefault();
+        // Perform validation and processing here
+      });
+  
+      console.log('%cForm Vaules', 'color: red')
+      console.log(form.Squad.value);
+      console.log(form.Requested.value);
+      console.log(form.World.value);
+      console.log(form.Safety.value);
+      console.log(form.Situation.value);
+
+      var formdata = {
+      ['Squad']: form.Squad.value, 
+      ['Requested']: form.Requested.value, 
+      ['World']: form.World.value, 
+      ['Safety']: form.Safety.value, 
+      ['Situation']: form.Situation.value, 
+      }
+
+      var dblog = localStorage['Template'];
+      
+      var dblog = dblog.replace("%Squad%", formdata['Squad']);
+      var dblog = dblog.replace("%Requested%", formdata['Requested']);
+      var dblog = dblog.replace("%World%", formdata['World']);
+      var dblog = dblog.replace("%Safety%", formdata['Safety']);
+      var dblog = dblog.replace("%Situation%", formdata['Situation']);
+
+
+      if (dblog.match(/\{%}(.*?)\{%}/g)){
+      console.log('%cRequires Advanced Parse', 'color: red')
+      dblog.match(/\{%}(.*?)\{%}/g).forEach((element) => {
+      // {%}Safety{:}Safe{=}safe{%}
+      var type = String(element.match(/\{%}(.*?)\{:}/g)).slice(3, -3)
+      
+      var replacewith = String(element.match(/\{=}(.*?)\{%}/g)).slice(3, -3)
+      var lookingfor = String(element.match(/\{:}(.*?)\{=}/g)).slice(3, -3)
+      var found = formdata[`${type}`]
+      console.log(type + " Element Needs Advanced Parse" + "\n" + element)
+      console.log(`Value of ${type} is ` + found)
+      
+      console.log(`Found ${found} Looking for ${lookingfor} to replace with ${replacewith}`)
+
+
+      if (found === lookingfor){
+        console.log("Match Replacing")
+        dblog = dblog.replace(element, replacewith)
+      }else{
+        console.log("No Match")
+        dblog = dblog.replace(element, "")
+      }         
+      });
+      }else{
+        console.log('%cDose not Advanced Requires Parse', 'color: red')
+      }
+
+      count()
+      var dblog = swap(dblog, color)
+      var dblog = swap(dblog, time)
+      console.log('%cFinal Log', 'color: red')
+      console.log(dblog)
+
+      navigator.clipboard.writeText(dblog);
+      document.getElementById("DBForm").reset();
+      ansicheck()
+      if (localStorage.getItem("SettingGX") == "true"){window.open("discord://discord.com/channels/645383380870889482/717484681523888218");}else{location.replace("discord://discord.com/channels/645383380870889482/717484681523888218");}
+    }
+  </script>
+
+
+<div onclick='window.open("template.html", "HelpWindow", "popup")' style="background:#5865f2;cursor:pointer;display:flex;justify-content:center;align-items:center;width:5vh;height:5vh;clip-path:circle(50%);position:absolute;bottom: 1em;right: 1em;font-size: 2.5vh;">&#x2699;</div>
+<div class="gear" onclick='window.open("https://home.lpd.blue/")'>
+  <style>
+  @-webkit-keyframes rotating {from{transform: rotate(0deg);}to{transform: rotate(360deg);}}
+  .gear:hover {animation: rotating 2s linear infinite;}
+  .gear{cursor:pointer;display:flex;justify-content:center;align-items:center;width:6vh;height:6vh;position:absolute;top: 1em;left:1em;font-size: 2.5vh; background-image:  url(https://home.lpd.blue/wp-content/uploads/2024/11/ULT.png); background-size:     cover;background-repeat:   no-repeat; background-position: center center;}
+  </style>
+</div>

@@ -1,0 +1,28 @@
+<script>
+function Load(){
+	if (localStorage.getItem("SettingGX") == "true"){document.getElementById("SettingGX").checked = true;}
+}
+
+
+function SettingGX(){
+localStorage.setItem("SettingGX", document.getElementById("SettingGX").checked);
+console.log(localStorage.getItem("SettingGX"))
+}
+</script>
+<style>
+html {
+    background-color: black;
+}
+html {
+    color: white;
+}
+</style>
+<h1>Debug</h1>
+
+
+
+
+
+<body onload="Load()">
+    <input type="checkbox" id="SettingGX" onclick=SettingGX()> <span id="SettingGXVal">GX Fix</span>
+</body>

@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+#main-body {
+    background-color: #313338;
+    color: #ffffff;
+    display:block;
+    text-align: center;
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+  }
+  
+#header{
+    line-height: 0.75em;
+}
+
+#header h1{
+    font-size: clamp(4vh, 3vw, 5vh);
+}
+
+#header h2{
+    font-size: clamp(2vh, 1.5vw, 2.5vh);
+}
+
+input, textarea, select{
+    background-color: #1e1f22;
+    border: none;
+    border-radius: .4em;
+    height: 2.5vh;
+    width: 80vw;
+    color: white;
+}
+
+
+
+#SWDBForm input[type="text"]
+{
+    font-size:2vh;
+}
+
+#SWDBForm label{
+    font-size: 2vh;
+}
+textarea{
+    height: 10vh;
+    resize: none;
+}
+
+.button{
+    background-color: #5865f2;
+    color: #ffffff;
+    border: none;
+    border-radius: .4em;
+    padding: 0px;
+    cursor: pointer;
+}
+.tiny-button{
+    width: clamp(2vh, 1.5vw, 2.5vh);
+    height: clamp(2vh, 1.5vw, 2.5vh);
+    font-size: clamp(calc(2vh / 2), calc(1.5vw / 2), calc(2.5vh / 2));
+}
+
+button:hover{
+    filter: brightness(.9);
+}
+
+.submit{
+  width: 80vw;
+  height: 2vh;
+  font-size: 1.5vh;
+}
+
+.flip{
+    font-size: 1em;
+}
+
+h2 {
+    font-size: 1.5em;
+}
+
+.time{
+    padding: .5em;
+    border-radius: .4em;
+    background-color: #1e1f22;
+    position: absolute;
+    bottom: 1em;
+    left: 1em;
+    font-size: 2vh;
+    color: white;
+    width: clamp(15em, 15vw, 15vw);
+    height: 12vh;
+}
+
+.pipButtonSVG{
+    height: 1em;
+    width: 1em;
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: 0.3em
+}
+
+#ChangeSquadPopup{
+    padding: .5em;
+    border-radius: .4em;
+    background-color: #1e1f22;
+}
+
+.hidden{
+    display: none;
+}

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<body id="main-body">
+
+  <script>console.log("Tool by Tjmaxmillion")</script>
+
+<link rel="stylesheet" href="style.css">
+<style>#Template{height: 50vh;}</style>
+
+
+
+
+
+
+
+
+
+
+<form id="TemplateForm">
+    <label for="Template">Template</label><br>
+    <textarea type="text" id="Template" name="Template"></textarea><br>
+  
+  
+  
+    <button class="button submit" type="button" onclick="submitForm()">Save Template</button>
+  </form> 
+
+  <div id="ansi">
+    <h2>ANSI Color Codes!</h2>
+    <code style="font-family: var(--font-code); padding: 0.5em; border: 1px solid var(--background-tertiary); font-weight: inherit; font-style: inherit; font-size: 0.875rem; vertical-align: baseline; line-height: 1.125rem; display: block; overflow-x: auto; border-radius: 4px; text-size-adjust: none; color: var(--text-normal); background: var(--background-secondary); white-space: pre-wrap">
+      <span class="hljs-ansi-style-bold" style="font-family: inherit; font-weight: 700; font-style: inherit; font-size: 14px; vertical-align: baseline">%Bold%</span>  <span class="hljs-ansi-style-underline" style="font-family: inherit; font-weight: inherit; font-style: inherit; font-size: 14px; vertical-align: baseline; text-decoration: underline">%Line%</span>  %Reset%
+      
+      <span class="hljs-ansi-foreground-black" style="font-family: inherit; font-weight: inherit; font-style: inherit; font-size: 14px; vertical-align: baseline; color: var(--interactive-muted)">%FGGrey%</span>  <span class="hljs-ansi-foreground-red" style="font-family: inherit; font-weight: inherit; font-style: inherit; font-size: 14px; vertical-align: baseline; color: rgb(220, 50, 47)">%FGRed%</span>  <span class="hljs-ansi-foreground-green" style="font-family: inherit; font-weight: inherit; font-style: inherit; font-size: 14px; vertical-align: baseline; color: rgb(133, 153, 0)">%FGGreen%</span>
+      <span class="hljs-ansi-foreground-yellow" style="font-family: inherit; font-weight: inherit; font-style: inherit; font-size: 14px; vertical-align: baseline; color: rgb(181, 137, 0)">%FGGold%</span>  <span class="hljs-ansi-foreground-blue" style="font-family: inherit; font-weight: inherit; font-style: inherit; font-size: 14px; vertical-align: baseline; color: rgb(38, 139, 210)">%FGBlue%</span>  <span class="hljs-ansi-foreground-magenta" style="font-family: inherit; font-weight: inherit; font-style: inherit; font-size: 14px; vertical-align: baseline; color: rgb(211, 54, 130)">%FGPink%</span>
+      <span class="hljs-ansi-foreground-cyan" style="font-family: inherit; font-weight: inherit; font-style: inherit; font-size: 14px; vertical-align: baseline; color: rgb(42, 161, 152)">%FGTeal%</span>  <span class="hljs-ansi-foreground-white" style="font-family: inherit; font-weight: inherit; font-style: inherit; font-size: 14px; vertical-align: baseline; color: var(--interactive-active)">%FGWhite%</span>
+    
+      <span class="hljs-ansi-background-black" style="font-family: inherit; font-weight: inherit; font-style: inherit; font-size: 14px; vertical-align: baseline; background-color: rgb(0, 43, 54)">%BGBlue%</span>  <span class="hljs-ansi-background-red" style="font-family: inherit; font-weight: inherit; font-style: inherit; font-size: 14px; vertical-align: baseline; background-color: rgb(203, 75, 22)">%BGOrange%</span>  <span class="hljs-ansi-background-green" style="font-family: inherit; font-weight: inherit; font-style: inherit; font-size: 14px; vertical-align: baseline; background-color: rgb(88, 110, 117)">%BGGrey40%</span>
+      <span class="hljs-ansi-background-yellow" style="font-family: inherit; font-weight: inherit; font-style: inherit; font-size: 14px; vertical-align: baseline; background-color: rgb(101, 123, 131)">%BGGrey45%</span>  <span class="hljs-ansi-background-blue" style="font-family: inherit; font-weight: inherit; font-style: inherit; font-size: 14px; vertical-align: baseline; background-color: rgb(131, 148, 150)">%BGGrey55%</span>  <span class="hljs-ansi-background-magenta" style="font-family: inherit; font-weight: inherit; font-style: inherit; font-size: 14px; vertical-align: baseline; background-color: rgb(108, 113, 196)">%BGPurple%</span>
+      <span class="hljs-ansi-background-cyan" style="font-family: inherit; font-weight: inherit; font-style: inherit; font-size: 14px; vertical-align: baseline; background-color: rgb(147, 161, 161)">%BGGrey60%</span>  <span class="hljs-ansi-background-white" style="font-family: inherit; font-weight: inherit; font-style: inherit; font-size: 14px; vertical-align: baseline; background-color: rgb(253, 246, 227); color: rgb(0, 0, 0)">%BGWhite%</span>
+    </code>
+    </div>
+    <script>
+      function ansicheck(){
+      if (!localStorage['Template'].match(/\`\`\`ansi/i)){
+        document.getElementById('ansi').style.display = 'none';
+      }else{document.getElementById('ansi').style.display = 'block';}}
+      ansicheck()
+    </script>
+
+<script>
+  document.getElementById("Template").value = localStorage['Template'];
+    function submitForm() {
+      const form = document.getElementById('TemplateForm');
+      form.addEventListener('submit', (event) => {
+        event.preventDefault();
+        // Perform validation and processing here
+      });
+  
+      console.log(form.Template.value);
+
+
+      let Template = form.Template.value;
+
+      localStorage['Template'] = Template;
+
+
+      document.getElementById("Template").value = localStorage['Template'];
+      ansicheck()
+    }
+</script>
