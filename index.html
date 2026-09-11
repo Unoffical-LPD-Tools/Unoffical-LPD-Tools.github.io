@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<body id="main-body">
+
+  <script>console.log("Tool by Tjmaxmillion")</script>
+
+<link rel="stylesheet" href="style.css">
+<script src="intro.js"></script>
+<script src="links.js"></script>
+<datalist id="ResponseList">
+  <option value="Patrol">
+  <option value="Undercover">
+  <option value="Long Gun">
+  <option value="SLRT">
+</datalist>
+<datalist id="SafetyList">
+  <option value="Unsafe">
+  <option value="Unknown">
+  <option value="Safe">
+</datalist>
+<div id="header">
+<h1>Search Warrant Mod Tools</h1>
+<h2 style="display: inline">
+    <span>You are moderating</span>
+    <a class="link" id="Group" style="color:white;">Group ?</a><span>,</span>
+    <a class="link" id="Squad1" style="color:white;">Squad1</a>
+    <span> and </span>
+    <a class="link" id="Squad2" style="color:white;">Squad2</a>
+    <button title="Swap Squads" class="button tiny-button" id="swap" onclick="SwapNames();"><span class="flip">&#8593;&#8595;</span></button>
+    <button title="Edit Squads" class="button tiny-button" id="swap" onclick="ChangeSquad()"><span class="flip">&#x270f;&#xfe0f;</span></button>
+
+    <script>
+      function ChangeSquad(){
+        let link = `ChangeSquad/?Group=${Group}&Squad1=${Squad1}&Squad2=${Squad2}`
+        window.location.href = link;
+      }
+    </script>
+
+  </h2>
+</div>
+<form id="SWDBForm">
+  <label for="InstigatingSquad">Instigating Squad</label><br>
+  <input type="text" id="InstigatingSquad" name="InstigatingSquad" value="" readonly tabindex="-1"><br>
+
+  <label for="OfficerSquad">Officer Squad</label><br>
+  <input type="text" id="OfficerSquad" name="OfficerSquad" value="" readonly tabindex="-1"><br>
+
+  <label for="ResponseType">Response Type</label><br>
+  <input type="text" id="ResponseType" name="ResponseType" list="ResponseList"><br>
+
+  <label for="World">World</label><br>
+  <input type="text" id="World" name="World"><br>
+
+  <label for="Situation">Situation</label><br>
+  <textarea type="text" id="Situation" name="Situation"></textarea><br>
+
+  <label for="Safety">Safety</label><br>
+  <input type="text" id="Safety" name="Safety" list="SafetyList"><br><br>
+
+  <button class="button submit" type="button" onclick="submitForm()">Copy Log To Clipboard &#128203;</button>
+</form> 
+
+</body>
+</html>
+
+<script>
+console.intro(url, 10);
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+Squad1 = urlParams.get('Squad1')
+console.log("URL Squad1 = " + Squad1);
+Squad2 = urlParams.get('Squad2')
+console.log("URL Squad2 = " + Squad2);
+Group = urlParams.get('Group')
+console.log("URL Group = " + "Group " + Group);
+
+function UpdateNames() {
+    console.log("Updating Names");
+document.getElementById("Squad1").innerHTML = Squad1;
+document.getElementById("Squad2").innerHTML = Squad2;
+document.getElementById("InstigatingSquad").value = Squad1;
+document.getElementById("OfficerSquad").value = Squad2;
+
+document.getElementById("Squad1").setAttribute('href', GetSquadLink(Squad1));
+document.getElementById("Squad2").setAttribute('href', GetSquadLink(Squad2));
+
+document.getElementById("Group").innerHTML = "Group " + Group;
+document.getElementById("Group").setAttribute('href', GetGroupLink(Group));
+}
+UpdateNames()
+
+
+function SwapNames() {
+    Squad2 = [Squad1, Squad1 = Squad2][0];
+    UpdateNames()
+}
+
+</script>
+
+
+<script>
+    function submitForm() {
+      const form = document.getElementById('SWDBForm');
+      form.addEventListener('submit', (event) => {
+        event.preventDefault();
+        // Perform validation and processing here
+      });
+  
+      console.log(form.InstigatingSquad.value);
+      console.log(form.OfficerSquad.value);
+      console.log(form.ResponseType.value);
+      console.log(form.World.value);
+      console.log(form.Situation.value);
+      console.log(form.Safety.value);
+
+
+      let InstigatingSquad = form.InstigatingSquad.value;
+      let OfficerSquad = form.OfficerSquad.value;
+      let ResponseType = form.ResponseType.value;
+      let World = form.World.value;
+      let Situation = form.Situation.value;
+      let Safety = form.Safety.value;
+
+
+      let dblog = `:LPDPhoenix: __**Local Search Warrant Approved**__ :LPDPhoenix:\
+\n
+**Instigating Squad:** ${InstigatingSquad}\
+\n
+**Officer Squad:** ${OfficerSquad}\
+\n
+**Response Type:** ${ResponseType}\
+\n
+**World:** ${World}\
+\n
+**Situation:** ${Situation}\
+\n
+**Safety:** ${Safety}\
+\n
+**Status:** Ongoing`;
+
+
+
+
+      navigator.clipboard.writeText(dblog);
+      document.getElementById("SWDBForm").reset();
+      SwapNames()
+      if (localStorage.getItem("SettingGX") == "true"){window.open("discord://discord.com/channels/645383380870889482/717484681523888218");}else{location.replace("discord://discord.com/channels/645383380870889482/717484681523888218");}
+    }
+  </script>
+
+<script src="timer.js"></script>
+
+<div class="time">
+
+  <svg id="pipButton" class="pipButtonSVG" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000" width="800px" height="800px" viewBox="0 0 36 36" version="1.1" preserveAspectRatio="xMidYMid meet">
+    <path class="clr-i-outline clr-i-outline-path-1" d="M27,33H5a2,2,0,0,1-2-2V9A2,2,0,0,1,5,7H15V9H5V31H27V21h2V31A2,2,0,0,1,27,33Z" fill="white"/><path class="clr-i-outline clr-i-outline-path-2" d="M18,3a1,1,0,0,0,0,2H29.59L15.74,18.85a1,1,0,1,0,1.41,1.41L31,6.41V18a1,1,0,0,0,2,0V3Z" fill="white"/>
+    <rect x="0" y="0" width="36" height="36" fill-opacity="0"/>
+  </svg>
+  <script src="pip.js"></script>
+  <div>
+    <span>Planning Time:</span>
+    <span id="PlanTime">Unset</span> 
+    <button style="background-color: #ED4245; height: 2em; width: 2em; font-size: .5em;" class="button" type="button" onclick='ResetTimer("PlancountDown")'>X</button>
+</div>
+  <div>
+        <span>Maximum Time:</span>
+        <span id="MaxTime">Unset</span>
+        <button style="background-color: #ED4245; height: 2em; width: 2em; font-size: .5em;" class="button" type="button" onclick='ResetTimer("MaxcountDown");ResetTimer("MincountDown")'>X</button>
+    </div>
+    <div>
+        <span>Minimum Time:</span>
+        <span id="MinTime">Unset</span>
+    </div>
+    <button style="padding: .2em; font-size: 1.2em;" class="button" type="button" onclick="PlanTimer()">Plan</button>
+    <button style="padding: .2em; font-size: 1.2em;" class="button" type="button" onclick="PlanAddTime(2)">+2</button>
+    <button style="padding: .2em; font-size: 1.2em;" class="button" type="button" onclick="StartTimer()">Start</button>
+</div>
+
+<div onclick='window.open("SWMT%20Docs.pdf#toolbar=0&navpanes=0&scrollbar=0", "HelpWindow", "popup")' style="background:#5865f2;cursor:pointer;display:flex;justify-content:center;align-items:center;width:5vh;height:5vh;clip-path:circle(50%);position:absolute;bottom: 1em;right: 1em;font-size: 2.5vh;">?</div>
+<div class="gear" onclick='window.open("https://home.lpd.blue/")'>
+  <style>
+  @-webkit-keyframes rotating {from{transform: rotate(0deg);}to{transform: rotate(360deg);}}
+  .gear:hover {animation: rotating 2s linear infinite;}
+  .gear{cursor:pointer;display:flex;justify-content:center;align-items:center;width:6vh;height:6vh;position:absolute;top: 1em;left:1em;font-size: 2.5vh; background-image:  url(https://home.lpd.blue/wp-content/uploads/2024/11/ULT.png); background-size:     cover;background-repeat:   no-repeat; background-position: center center;}
+  </style>
+</div>

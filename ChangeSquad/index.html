@@ -1,0 +1,99 @@
+<link rel="stylesheet" href="../style.css">
+<body id="main-body">
+<form id="ChangeSquad">
+      <select id="ChangeGroup">
+          <option id="CurrentGroup1" value="1">Group 1</option>
+          <option id="CurrentGroup2" value="2">Group 2</option>
+          <option id="CurrentGroup3" value="3">Group 3</option>
+          <option id="CurrentGroup4" value="4">Group 4</option>
+          <option id="CurrentGroup5" value="5">Group 5</option>
+          <option id="CurrentGroup6" value="6">Group 6</option>
+          <option id="CurrentGroup7" value="7">Group 7</option>
+          <option id="CurrentGroup8" value="8">Group 8</option>
+      </select><br>
+      <select id="ChangeSquad1">
+          <option id="CurrentSquad1Alpha" value="Alpha">Alpha</option>
+          <option id="CurrentSquad1Bravo" value="Bravo">Bravo</option>
+          <option id="CurrentSquad1Charlie" value="Charlie">Charlie</option>
+          <option id="CurrentSquad1Delta" value="Delta">Delta</option>
+          <option id="CurrentSquad1Echo" value="Echo">Echo</option>
+          <option id="CurrentSquad1Foxtrot" value="Foxtrot">Foxtrot</option>
+          <option id="CurrentSquad1Golf" value="Golf">Golf</option>
+          <option id="CurrentSquad1Hotel" value="Hotel">Hotel</option>
+          <option id="CurrentSquad1India" value="India">India</option>
+          <option id="CurrentSquad1Juliet" value="Juliet">Juliet</option>
+          <option id="CurrentSquad1Kilo" value="Kilo">Kilo</option>
+          <option id="CurrentSquad1Lima" value="Lima">Lima</option>
+          <option id="CurrentSquad1Mike" value="Mike">Mike</option>
+          <option id="CurrentSquad1November" value="November">November</option>
+          <option id="CurrentSquad1Oscar" value="Oscar">Oscar</option>
+          <option id="CurrentSquad1Papa" value="Papa">Papa</option>
+          <option id="CurrentSquad1Quebec" value="Quebec">Quebec</option>
+          <option id="CurrentSquad1Romeo" value="Romeo">Romeo</option>
+          <option id="CurrentSquad1Sierra" value="Sierra">Sierra</option>
+          <option id="CurrentSquad1Tango" value="Tango">Tango</option>
+          <option id="CurrentSquad1Uniform" value="Uniform">Uniform</option>
+          <option id="CurrentSquad1Victor" value="Victor">Victor</option>
+          <option id="CurrentSquad1Whiskey" value="Whiskey">Whiskey</option>
+          <option id="CurrentSquad1Xray" value="Xray">Xray</option>
+          <option id="CurrentSquad1Yankee" value="Yankee">Yankee</option>
+          <option id="CurrentSquad1Zulu" value="Zulu">Zulu</option>
+      </select><br>
+      <select id="ChangeSquad2">
+          <option id="CurrentSquad2Alpha" value="Alpha">Alpha</option>
+          <option id="CurrentSquad2Bravo" value="Bravo">Bravo</option>
+          <option id="CurrentSquad2Charlie" value="Charlie">Charlie</option>
+          <option id="CurrentSquad2Delta" value="Delta">Delta</option>
+          <option id="CurrentSquad2Echo" value="Echo">Echo</option>
+          <option id="CurrentSquad2Foxtrot" value="Foxtrot">Foxtrot</option>
+          <option id="CurrentSquad2Golf" value="Golf">Golf</option>
+          <option id="CurrentSquad2Hotel" value="Hotel">Hotel</option>
+          <option id="CurrentSquad2India" value="India">India</option>
+          <option id="CurrentSquad2Juliet" value="Juliet">Juliet</option>
+          <option id="CurrentSquad2Kilo" value="Kilo">Kilo</option>
+          <option id="CurrentSquad2Lima" value="Lima">Lima</option>
+          <option id="CurrentSquad2Mike" value="Mike">Mike</option>
+          <option id="CurrentSquad2November" value="November">November</option>
+          <option id="CurrentSquad2Oscar" value="Oscar">Oscar</option>
+          <option id="CurrentSquad2Papa" value="Papa">Papa</option>
+          <option id="CurrentSquad2Quebec" value="Quebec">Quebec</option>
+          <option id="CurrentSquad2Romeo" value="Romeo">Romeo</option>
+          <option id="CurrentSquad2Sierra" value="Sierra">Sierra</option>
+          <option id="CurrentSquad2Tango" value="Tango">Tango</option>
+          <option id="CurrentSquad2Uniform" value="Uniform">Uniform</option>
+          <option id="CurrentSquad2Victor" value="Victor">Victor</option>
+          <option id="CurrentSquad2Whiskey" value="Whiskey">Whiskey</option>
+          <option id="CurrentSquad2Xray" value="Xray">Xray</option>
+          <option id="CurrentSquad2Yankee" value="Yankee">Yankee</option>
+          <option id="CurrentSquad2Zulu" value="Zulu">Zulu</option>
+      </select><br>
+      <input class="button submit" type="submit" value="Change Squad" onclick="ChangeSquad()">
+</form>
+  <script>
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    Group = urlParams.get('Group')
+    Squad1 = urlParams.get('Squad1')
+    Squad2 = urlParams.get('Squad2')
+    
+    document.getElementById(`CurrentGroup${Group}`).selected = true;
+    document.getElementById(`CurrentSquad1${Squad1}`).selected = true;
+    document.getElementById(`CurrentSquad2${Squad2}`).selected = true;
+    
+      function ChangeSquad() {
+        const form = document.getElementById('ChangeSquad');
+        form.addEventListener('submit', (event) => {
+          event.preventDefault();
+          // Perform validation and processing here
+        });
+  
+        console.log(form.ChangeGroup.value);
+        console.log(form.ChangeSquad1.value);
+        console.log(form.ChangeSquad2.value);
+        
+        let link = `../?Group=${form.ChangeGroup.value}&Squad1=${form.ChangeSquad1.value}&Squad2=${form.ChangeSquad2.value}`
+  
+        parent.window.location.assign(link);
+      }
+  </script>
+</body>

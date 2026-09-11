@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<body>
+<link rel="stylesheet" href="style.css">
+<script src="intro.js"></script>
+
+<h1>Search Warrant Group Generator</h2>
+
+<form id="SWGroupForm">
+<span style="whitespace:nowrap">  
+  <label for="Group1">Group 1</label>
+  <input type="text" id="Group1Squad1" name="Group1Squad1" value="Alpha">
+  <span>|</span>
+  <input type="text" id="Group1Squad2" name="Group1Squad2" value="Juliet">
+  </span><br>
+<span style="whitespace:nowrap">
+  <label for="Group2">Group 2</label>
+  <input type="text" id="Group2Squad1" name="Group2Squad1" value="Bravo">
+  <span>|</span>
+  <input type="text" id="Group2Squad2" name="Group2Squad2" value="India">
+  </span><br>
+<span style="whitespace:nowrap">
+  <label for="Group3">Group 3</label>
+  <input type="text" id="Group3Squad1" name="Group3Squad1" value="Charlie">
+  <span>|</span>
+  <input type="text" id="Group3Squad2" name="Group3Squad2" value="Hotel">
+  </span><br>
+<span style="whitespace:nowrap">
+  <label for="Group4">Group 4</label>
+  <input type="text" id="Group4Squad1" name="Group4Squad1" value="Delta">
+  <span>|</span>
+  <input type="text" id="Group4Squad2" name="Group4Squad2" value="Golf">
+  </span><br>
+<span style="whitespace:nowrap">
+  <label for="Group5">Group 5</label>
+  <input type="text" id="Group5Squad1" name="Group5Squad1" value="Echo">
+  <span>|</span>
+  <input type="text" id="Group5Squad2" name="Group5Squad2" value="Foxtrot">
+  </span><br>
+<span style="whitespace:nowrap">
+  <label for="Group6">Group 6</label>
+  <input type="text" id="Group6Squad1" name="Group6Squad1" value="Kilo">
+  <span>|</span>
+  <input type="text" id="Group6Squad2" name="Group6Squad2" value="Lima">
+  </span><br>
+<span style="whitespace:nowrap">
+  <label for="Group7">Group 7</label>
+  <input type="text" id="Group7Squad1" name="Group7Squad1" value="Mike">
+  <span>|</span>
+  <input type="text" id="Group7Squad2" name="Group7Squad2" value="November">
+  </span><br>
+<span style="whitespace:nowrap">
+  <label for="Group8">Group 8</label>
+  <input type="text" id="Group8Squad1" name="Group8Squad1" value="Oscar">
+  <span>|</span>
+  <input type="text" id="Group8Squad2" name="Group8Squad2" value="Papa">
+  </span><br>
+
+
+  <button class="button submit" type="button" onclick="submitForm()">Copy To Clipboard &#128203;</button>
+</form> 
+
+</body>
+</html>
+
+<script>
+  console.intro(url, 10);
+    function submitForm() {
+      const form = document.getElementById('SWGroupForm');
+      form.addEventListener('submit', (event) => {
+        event.preventDefault();
+        // Perform validation and processing here
+      });
+  
+      console.log(form.Group1Squad1.value);
+      console.log(form.Group1Squad2.value);
+      console.log(form.Group2Squad1.value);
+      console.log(form.Group2Squad2.value);
+      console.log(form.Group3Squad1.value);
+      console.log(form.Group3Squad2.value);
+      console.log(form.Group4Squad1.value);
+      console.log(form.Group4Squad2.value);
+      console.log(form.Group5Squad1.value);
+      console.log(form.Group5Squad2.value);
+      console.log(form.Group6Squad1.value);
+      console.log(form.Group6Squad2.value);
+      console.log(form.Group7Squad1.value);
+      console.log(form.Group7Squad2.value);
+      console.log(form.Group8Squad1.value);
+      console.log(form.Group8Squad2.value);
+            
+
+
+      let Group1Squad1 = form.Group1Squad1.value;
+      let Group1Squad2 = form.Group1Squad2.value;
+      let Group2Squad1 = form.Group2Squad1.value;
+      let Group2Squad2 = form.Group2Squad2.value;
+      let Group3Squad1 = form.Group3Squad1.value;
+      let Group3Squad2 = form.Group3Squad2.value;
+      let Group4Squad1 = form.Group4Squad1.value;
+      let Group4Squad2 = form.Group4Squad2.value;
+      let Group5Squad1 = form.Group5Squad1.value;
+      let Group5Squad2 = form.Group5Squad2.value;
+      let Group6Squad1 = form.Group6Squad1.value;
+      let Group6Squad2 = form.Group6Squad2.value;
+      let Group7Squad1 = form.Group7Squad1.value;
+      let Group7Squad2 = form.Group7Squad2.value;
+      let Group8Squad1 = form.Group8Squad1.value;
+      let Group8Squad2 = form.Group8Squad2.value;
+
+
+      let dblog = `## * [Group 1 Dispatch Generator](https://${window.location.hostname}/dispatch/sw/?Group=1&Squad1=${Group1Squad1}&Squad2=${Group1Squad2})\n${Group1Squad1} | ${Group1Squad2}
+## * [Group 2 Dispatch Generator](https://${window.location.hostname}/dispatch/sw/?Group=2&Squad1=${Group2Squad1}&Squad2=${Group2Squad2})\n${Group2Squad1} | ${Group2Squad2}
+## * [Group 3 Dispatch Generator](https://${window.location.hostname}/dispatch/sw/?Group=3&Squad1=${Group3Squad1}&Squad2=${Group3Squad2})\n${Group3Squad1} | ${Group3Squad2}
+## * [Group 4 Dispatch Generator](https://${window.location.hostname}/dispatch/sw/?Group=4&Squad1=${Group4Squad1}&Squad2=${Group4Squad2})\n${Group4Squad1} | ${Group4Squad2}
+## * [Group 5 Dispatch Generator](https://${window.location.hostname}/dispatch/sw/?Group=5&Squad1=${Group5Squad1}&Squad2=${Group5Squad2})\n${Group5Squad1} | ${Group5Squad2}
+## * [Group 6 Dispatch Generator](https://${window.location.hostname}/dispatch/sw/?Group=6&Squad1=${Group6Squad1}&Squad2=${Group6Squad2})\n${Group6Squad1} | ${Group6Squad2}
+## * [Group 7 Dispatch Generator](https://${window.location.hostname}/dispatch/sw/?Group=7&Squad1=${Group7Squad1}&Squad2=${Group7Squad2})\n${Group7Squad1} | ${Group7Squad2}
+## * [Group 8 Dispatch Generator](https://${window.location.hostname}/dispatch/sw/?Group=8&Squad1=${Group8Squad1}&Squad2=${Group8Squad2})\n${Group8Squad1} | ${Group8Squad2}`;
+
+      navigator.clipboard.writeText(dblog);
+    }
+  </script>
